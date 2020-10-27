@@ -14,13 +14,13 @@ public class SpellMapper {
 		boolean isVerbal = Arrays.stream(components).anyMatch("V"::equals);
 		boolean isSomatic = Arrays.stream(components).anyMatch("S"::equals);
 		boolean isMaterial = Arrays.stream(components).anyMatch("M"::equals);
-		String higherLevel = srdSpell.getHigher_level() == null ? null : srdSpell.getHigher_level()[0];
+		String higherLevel = srdSpell.getHigher_level() == null ? null : srdSpell.getHigher_level().get(0);
 		String damageType = getDamageType(srdSpell);
 		
 		return Spell.builder()
 				.indexName(srdSpell.getIndex())
 				.spellName(srdSpell.getName())
-				.description(srdSpell.getDesc()[0])
+				.description(srdSpell.getDesc().get(0))
 				.higherLevel(higherLevel)
 				.spellRange(srdSpell.getRange())
 				.isVerbal(isVerbal)

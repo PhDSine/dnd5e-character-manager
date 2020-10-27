@@ -1,6 +1,7 @@
 package com.character.model.srd;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -20,8 +21,8 @@ public class SRDSpell implements Serializable {
 
 	private String index;
 	private String name;
-	private String[] desc;
-	private String[] higher_level;
+	private List<String> desc;
+	private List<String> higher_level;
 	private String range;
 	private String[] components;
 	private String material;
@@ -33,6 +34,6 @@ public class SRDSpell implements Serializable {
 	private String attack_type;
 	private SRDDamage damage;
 	private SRDNameUrl school;
-	private SRDNameUrl[] classes;
-	private SRDNameUrl[] subclasses;
+	private List<SRDNameUrl> classes;
+	private List<SRDNameUrl> subclasses;
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.character.persistence.entity.ClassEntity;
 import com.character.persistence.repository.ClassRepository;
 import com.character.service.SRDService;
+import com.character.service.api.SRDSpellService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,6 +23,6 @@ public class ClassStartup  implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		apiService.getAllSpells();
+		apiService.testSomething();
 	}
 }

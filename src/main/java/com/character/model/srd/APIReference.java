@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SRDIndexNameUrl {
+public class APIReference {
 
 	private String index;
 	private String name;
