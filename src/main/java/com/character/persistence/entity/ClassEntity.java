@@ -24,6 +24,7 @@ public class ClassEntity extends BaseEntity {
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="parentClass")
 	protected List<Subclass> subclasses;
 
+	protected String indexName;
 	protected String className;
 	protected String description;
 	protected String primarySavingThrow;
