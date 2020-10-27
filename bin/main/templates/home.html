@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Character Manager</title>
+ 	<meta name="Character Manager"/>
+<!--     <link rel="stylesheet" th:href="@{/styles.css}" /> -->
+</head>
+<body>
+	<form method="POST" th:object="${newCharacter}">
+	
+		<div class="form-group">
+			<select class="form-control" th:field="*{characterRace}" id="character-race-dropdown">
+				<option value="0">Selected</option>
+				<option th:each="race : ${races}" th:value="${race.id}" th:text="${race.name}"></option>
+			</select>
+		</div>
+	
+		<div class="form-group">
+			<select class="form-control" id="character-class-dropdown">
+				<option value="0">Selected</option>
+				<option th:each="classEntity : ${classes}" th:value="${classEntity.id}" th:text="${classEntity.className}"></option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<select class="form-control" th:field="*{characterClass}" id="character-sublass-dropdown">
+				<option value="0">Selected</option>
+				<option th:each="subclass : ${subclasses}" th:value="${subclass.id}" th:text="${subclass.name}" th:class="${subclass.parentClass.className}"></option>
+			</select>
+		</div>
+		
+		
+	</form>
+</body>
+</html>
