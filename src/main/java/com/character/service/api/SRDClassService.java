@@ -19,7 +19,7 @@ public class SRDClassService {
 	
 	private static String BASE_URL = "https://www.dnd5eapi.co";
 
-	public List<SRDClass> getAllClassesFromApiAndSave() {
+	public List<SRDClass> getAllClasses() {
 		RestTemplate restTemplate = new RestTemplate();
 		List<SRDClass> allClasses = new ArrayList<>();
 

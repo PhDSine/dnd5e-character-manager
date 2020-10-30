@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SRDRaceService {
 	private static String BASE_URL = "https://www.dnd5eapi.co";
 
-	public List<SRDRace> getAllRacesFromApiAndSave() {
+	public List<SRDRace> getAllRaces() {
 		RestTemplate restTemplate = new RestTemplate();
 		List<SRDRace> allRaces = new ArrayList<>();
 
