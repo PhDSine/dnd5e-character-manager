@@ -1,5 +1,7 @@
 package com.character.model.srd;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,11 +11,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class APIReference {
+public class SRDWeaponProperty {
 
 	private String index;
 	private String name;
-	private String type;
-	private String url;
-	
+	private List<String> desc;
 }

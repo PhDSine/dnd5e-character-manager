@@ -14,18 +14,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "CLASS")
+@Table
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class ClassEntity extends BaseEntity {
-	
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="parentClass")
-	protected List<Subclass> subclasses;
+public class Ability extends BaseEntity {
 
-	protected String className;
-	protected String description;
-	protected int hitDie;
-	protected String spellcastingAbility;
+	private static final long serialVersionUID = 1L;
+
+	private String shortAbilityName;
+	private String abilityName;
+	private String description;
+	
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="parentAbility")
+	private List<Skill> skills;
+	
 }

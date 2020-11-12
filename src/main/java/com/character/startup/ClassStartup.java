@@ -23,6 +23,6 @@ public class ClassStartup  implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		apiService.testSomething();
+		apiService.loadDatabases();
 	}
 }
