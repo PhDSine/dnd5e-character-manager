@@ -32,16 +32,7 @@ public class CharacterManagerController {
 	
 	@GetMapping({"/", "/home"})
 	public String newCharacter(Model model) {
-		model.addAttribute("newCharacter", new CharacterCreator());
-
-		List<Race> races = raceRepository.findAll();
-		model.addAttribute("races", races);
 		
-		List<ClassEntity> classes = classRepository.findAll();
-		model.addAttribute("classes", classes);
-		
-		List<Subclass> subclasses = service.getAllSubclasses(classes);
-		model.addAttribute("subclasses", subclasses);
 		return "home";
 	}
 }
