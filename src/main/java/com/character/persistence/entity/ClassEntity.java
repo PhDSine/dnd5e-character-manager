@@ -21,6 +21,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ClassEntity extends BaseEntity {
 	
+	@OneToMany(mappedBy = "classEntity")
+	private Set<ClassSpellList> classSpells;
+	
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="parentClass")
 	protected List<Subclass> subclasses;
 

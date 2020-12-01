@@ -1,5 +1,7 @@
 package com.character.persistence.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -9,23 +11,25 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
-@Table
+@Table(name = "CLASS_SPELL_LIST")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class Skill extends BaseEntity {
+public class ClassSpellList extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
-
-	private String skillName;
-	private String description;
+	@ManyToOne
+	@JoinColumn(name = "parentClassId")
+	ClassEntity classEntity;
 	
 	@ManyToOne
-	@JoinColumn(name="parentAbilityId", nullable=false)
-    @ToString.Exclude
-	private Ability parentAbility;
+	@JoinColumn(name = "subclassId")
+	Subclass subclass;
+	
+	@ManyToOne
+	@JoinColumn(name = "spellId")
+	Spell spell;
+	
 }

@@ -5,10 +5,11 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.character.persistence.entity.ClassEntity;
+import com.character.persistence.entity.Subclass;
 
 @Repository
-public interface ClassRepository extends JpaRepository<ClassEntity, Long> {
+public interface SubclassRepository extends JpaRepository<Subclass, Long>{
 
-	Optional<ClassEntity> findByClassName(String className);
+	Optional<Subclass> findByName(String name);
+	
 }

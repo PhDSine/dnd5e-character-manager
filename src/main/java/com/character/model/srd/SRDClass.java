@@ -28,7 +28,7 @@ public class SRDClass implements Serializable {
 	private String starting_equipment;
 	private String class_levels;
 	private List<APIReference> subclasses;
-	private String spellcasting;
+	private SRDSpellcasting spellcasting;
 	private String spells;
 	private String url;
 

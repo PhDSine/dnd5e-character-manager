@@ -3,13 +3,21 @@ package com.character.service.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.character.model.srd.SRDClass;
+import com.character.mapper.ClassEntityMapper;
 import com.character.model.srd.APIReference;
 import com.character.model.srd.SRDResponse;
+import com.character.model.srd.SRDSubclass;
+import com.character.persistence.entity.ClassEntity;
+import com.character.persistence.entity.Subclass;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,6 +26,12 @@ import lombok.extern.slf4j.Slf4j;
 public class SRDClassService {
 	
 	private static String BASE_URL = "https://www.dnd5eapi.co";
+	
+	@Autowired
+	ClassEntityMapper classEntityMapper;
+	
+	@PersistenceContext
+	EntityManager entityManager;
 
 	public List<SRDClass> getAllClasses() {
 		RestTemplate restTemplate = new RestTemplate();
@@ -32,10 +46,33 @@ public class SRDClassService {
 			SRDClass classObject = restTemplate.getForEntity(BASE_URL + classUrl.getUrl(), SRDClass.class).getBody();
 			allClasses.add(classObject);
 			
-			// TODO: remove log
-			log.info(classObject.toString());
 		});
+		
+		saveAllClassesToDatabase(allClasses);
+		
+		saveAllSubclassesToDatabase(allClasses);
 
 		return allClasses;
+	}
+
+	private void saveAllClassesToDatabase(List<SRDClass> classList) {
+		for(SRDClass srdClass : classList) {
+			ClassEntity classEntity = classEntityMapper.mapClassEntityFromSRD(srdClass);
+			entityManager.persist(classEntity);
+		}
+		
+	}
+	
+	private void saveAllSubclassesToDatabase(List<SRDClass> classList) {
+		for(SRDClass srdClass : classList) {
+			List<APIReference> subclasses = srdClass.getSubclasses();
+			for(APIReference subclassUrl : subclasses) {
+				RestTemplate restTemplate = new RestTemplate();
+				SRDSubclass subclassObject = restTemplate.getForEntity(BASE_URL + subclassUrl.getUrl(), SRDSubclass.class).getBody();
+				Subclass subclass = classEntityMapper.mapSubclassEntityFromSRD(subclassObject);
+				entityManager.persist(subclass);
+			}
+		}
+		
 	}
 }
