@@ -33,7 +33,6 @@ public class CharacterManagerController {
 	
 	@GetMapping({"/", "/home"})
 	public String homepage(Model model) {
-		
 		return "home";
 	}
 	
