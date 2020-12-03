@@ -1,8 +1,10 @@
 package com.character.persistence.entity;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -16,6 +18,10 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class Spell extends BaseEntity {
+	
+	@OneToMany(mappedBy = "spell")
+	private Set<ClassSpellList> classSpells;
+	
 	private String indexName;
 	private String spellName;
 	private String description;

@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.character.model.CharacterCreator;
 import com.character.persistence.entity.ClassEntity;
 import com.character.persistence.entity.Race;
+import com.character.persistence.entity.Spell;
 import com.character.persistence.entity.Subclass;
 import com.character.persistence.repository.ClassRepository;
-import com.character.persistence.repository.RaceRepository;
+import com.character.persistence.repository.SpellRepository;
 import com.character.service.CharacterManagerService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,11 +29,17 @@ public class CharacterManagerController {
 	ClassRepository classRepository;
 	
 	@Autowired
-	RaceRepository raceRepository;
+	SpellRepository spellRepo;
 	
 	@GetMapping({"/", "/home"})
-	public String newCharacter(Model model) {
-		
+	public String homepage(Model model) {
 		return "home";
+	}
+	
+	@GetMapping("spells")
+	public String spells(Model model) {
+		List<Spell> spells = spellRepo.findByOrderBySpellName();
+		model.addAttribute("spells", spells);
+		return "spells";
 	}
 }

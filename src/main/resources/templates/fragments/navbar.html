@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:fragment="sidebar">
+ 			<!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon">
+                    <i class="fab fa-d-and-d"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Character Compendium</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="home">
+                    <i class="fas fa-user-edit"></i>
+                    <span>Characters</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Resources
+            </div>
+
+            <!-- Nav Item - Character Data Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCharacterData"
+                    aria-expanded="true" aria-controls="collapseCharacterData">
+					<i class="fas fa-book"></i>
+                    <span>Character Data</span>
+                </a>
+                <div id="collapseCharacterData" class="collapse" aria-labelledby="headingCharacterData" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">Ability Scores</a>
+                        <a class="collapse-item" href="#">Skills</a>
+                        <a class="collapse-item" href="#">Proficiencies</a>
+                        <a class="collapse-item" href="#">Languages</a>
+                        
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Classes Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClasses"
+                    aria-expanded="true" aria-controls="collapseClasses">
+						<i class="fas fa-hat-wizard"></i>                    
+						<span>Classes</span>
+                </a>
+                <div id="collapseClasses" class="collapse" aria-labelledby="headingClasses"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">Classes</a>
+                        <a class="collapse-item" href="#">Subclasses</a>
+                        <a class="collapse-item" href="#">Features</a>
+                    </div>
+                </div>
+            </li>
+
+			<!-- Nav Item - Races Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRaces"
+                    aria-expanded="true" aria-controls="collapseRaces">
+						<i class="fas fa-child"></i>                
+						<span>Races</span>
+                </a>
+                <div id="collapseRaces" class="collapse" aria-labelledby="headingRaces"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">Races</a>
+                        <a class="collapse-item" href="#">Subraces</a>
+                        <a class="collapse-item" href="#">Traits</a>
+                    </div>
+                </div>
+            </li>
+
+			<!-- Nav Item - Equipment Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEquipment"
+                    aria-expanded="true" aria-controls="collapseEquipment">
+						<i class="fas fa-shield-alt"></i>                
+						<span>Equipment</span>
+                </a>
+                <div id="collapseEquipment" class="collapse" aria-labelledby="headingEquipment"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">Weapons</a>
+                        <a class="collapse-item" href="#">Armor</a>
+                        <a class="collapse-item" href="#">Adventuring Gear</a>
+                        <a class="collapse-item" href="#">Equipment Packs</a>
+                        <a class="collapse-item" href="#">Magic Items</a>
+                        
+                    </div>
+                </div>
+            </li>
+            
+            <!-- Nav Item - Spells Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSpells"
+                    aria-expanded="true" aria-controls="collapseSpells">
+						<i class="fas fa-magic"></i>						
+						<span>Spellcasting</span>
+                </a>
+                <div id="collapseSpells" class="collapse" aria-labelledby="collapseSpells"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="spells">Spells</a>
+                        <a class="collapse-item" href="#">Spellcasting Rules</a>
+                    </div>
+                </div>
+            </li>
+            
+           
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+</ul>
+
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" th:fragment="topbar">
+
+    <!-- Sidebar Toggle (Topbar) -->
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Topbar Search -->
+    <form
+        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+
+        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+        <li class="nav-item dropdown no-arrow d-sm-none">
+            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+            </a>
+          
+        </li>
+
+<!--         <div class="topbar-divider d-none d-sm-block"></div> -->
+
+
+    </ul>
+
+</nav>
+
+</html>
